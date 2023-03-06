@@ -3,9 +3,8 @@ import logging
 class LogGen:
     @staticmethod
     def loggen():
-        logging.basicConfig(filename="newfiles.log",
-                            format='%(asctime)s %(message)s',
-                            filemode='w')
         logger = logging.getLogger()
+        handler = logging.FileHandler('D:\\Ecommerence\\Logs\\automation.log')
+        logger.addHandler(handler)
         logger.setLevel(logging.INFO)
         return logger

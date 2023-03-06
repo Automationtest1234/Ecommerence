@@ -1,4 +1,5 @@
 import pytest
+import logging
 from selenium import webdriver
 from pageObjects.LoginPage import LoginPage
 from Utilities.Properties import Config
@@ -9,19 +10,18 @@ class Test001_Login:
     baseURL = Config.BaseURL()
     username = Config.GetUsername()
     password = Config.GetPassword()
-    logger=LogGen.loggen()
+    loggers=LogGen.loggen()
 
     @pytest.mark.regression
     def test_homePageTitle(self, setup):
-        self.logger.debug("******Test001_Login******")
-        self.logger.info("******Verify the homepageTitle*****")
+        self.loggers.info("******Verify the homepageTitle*****")
         self.driver = setup
         self.driver.get(self.baseURL)
         act_title = self.driver.title
         if act_title == 'Your store. Login':
             assert True
             self.driver.close()
-            self.logger.info("******homepageTitle is passed*****")
+            self.loggers.info("******homepageTitle is passed*****")
         else:
             self.driver.save_screenshot(".\\Screenshots\\" + "test_homePageTitle.png")
             self.driver.close()
@@ -31,8 +31,8 @@ class Test001_Login:
     @pytest.mark.regression
     def test_login(self, setup):
         self.driver = setup
-        self.logger.info("******Test001_Login******")
-        self.logger.info("******Verify the homepageTitle*****")
+        self.loggers.info("******Test001_Login******")
+        self.loggers.info("******Verify the homepageTitle*****")
         self.driver.get(self.baseURL)
         self.lp = LoginPage(self.driver)
         self.lp.setUsername(self.username)

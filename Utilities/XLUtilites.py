@@ -3,7 +3,7 @@ def getRowCount(file,sheetName):
     workbook=openpyxl.load_workbook(file)
     workbook.active
     sheet=workbook[sheetName]
-    return openpyxl.sheet.max_row
+    return sheet.max_row
 
 def getColumnCount(file,sheetName):
     workbook=openpyxl.load_workbook(file)
