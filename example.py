@@ -6,55 +6,20 @@ driver=webdriver.Chrome()
 driver.get('https://admin-demo.nopcommerce.com/')
 driver.maximize_window()
 
-textbox_username_id="Email"
-textbox_password_id="Password"
-button_login_xpath="/html/body/div[6]/div/div/div/div/div[2]/div[1]/div/form/div[3]/button"
-link_customer_menu_xpath="/html/body/div[3]/aside/div/div[4]/div/div/nav/ul/li[4]/a/p"
-link_customer_menu_items_xpath="/html/body/div[3]/aside/div/div[4]/div/div/nav/ul/li[4]/ul/li[1]/a"
-driver.find_element(By.ID, textbox_username_id).clear()
-driver.find_element(By.ID,textbox_username_id).send_keys('admin@yourstore.com')
-time.sleep(3)
-driver.find_element(By.ID,textbox_password_id).clear()
-driver.find_element(By.ID,textbox_password_id).send_keys('admin')
-time.sleep(3)
-driver.find_element(By.XPATH,button_login_xpath).click()
-driver.find_element(By.XPATH,link_customer_menu_xpath).click()
-time.sleep(1)
-driver.find_element(By.XPATH,link_customer_menu_items_xpath).click()
-time.sleep(3)
-link_add_button_xpath="/html/body/div[3]/div[1]/form[1]/div/div/a"
-driver.find_element(By.XPATH,link_add_button_xpath).click()
-time.sleep(3)
-customer_roles_xpath='/html[1]/body[1]/div[3]/div[1]/form[1]/section[1]/div[1]/div[1]/nop-cards[1]/nop-card[1]/div[1]/div[2]/div[10]/div[2]/div[1]/div[1]/div[1]/div[1]'
-driver.find_element(By.XPATH,customer_roles_xpath).click()
-lstadmin='/html[1]/body[1]/div[6]/div[1]/div[2]/ul[1]/li[3]'
-driver.find_element(By.XPATH,lstadmin).click()
-time.sleep(5)
 
 
-driver.close()
+driver.close()"""
+import time
 
-
-
-
-
-link_customer_menu_xpath="/html/body/div[3]/aside/div/div[4]/div/div/nav/ul/li[4]/a/p"
-link_customer_menu_items_xpath="/html/body/div[3]/aside/div/div[4]/div/div/nav/ul/li[4]/ul/li[1]/a"
-link_add_button_xpath="/html/body/div[3]/div[1]/form[1]/div/div/a"
-customer_roles_xpath='/html/body/div[3]/div[1]/form[1]/section/div/div/div/div[1]/div/div[2]/div[1]/div[2]/div[5]/div[2]/div/div/input'
-
-driver.find_element(By.XPATH,link_customer_menu_items_xpath).click()
-driver.find_element(By.XPATH,link_add_button_xpath).click()
-driver.find_element(By.XPATH,customer_roles_xpath).click()
-
+"""
 driver.find_element(By.ID,'')
 driver.find_element(By.XPATH,'')
 driver.find_element(By.LINK_TEXT,'')
 driver.find_element(By.NAME,'')
 driver.find_element(By.CLASS_NAME,'')
 driver.find_element(By.CSS_SELECTOR,'')
-driver.find_element(By.PARTIAL_LINK_TEXT,'').send_keys()
-import openpyxl
+driver.find_element(By.PARTIAL_LINK_TEXT,'').send_keys()"""
+"""import openpyxl
 import pyqrcode
 import png
 from pyqrcode import QRCode
@@ -103,9 +68,195 @@ print(arr.size)
 print(arr.repeat(5))
 for x in arr:
     print(x)"""
-l=list("1234")
-l[0]=l[1]=5
-print(l)
-num= tuple("3234")
-for i in num:
-    print(i)
+
+"""from selenium import webdriver
+
+from selenium.webdriver.common.by import By
+
+driver = webdriver.Chrome()
+driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/7")
+driver.find_element(By.NAME,'firstName').send_keys("Admin")
+time.sleep(5)
+driver.find_element(By.XPATH, '//input[@name="password"]').send_keys("admin123")
+driver.find_element(By.XPATH, '//button[text()="Login"]').click()
+"""
+
+# import the libs
+"""from selenium import webdriver
+from time import sleep
+
+# create the initial window
+driver = webdriver.Chrome()
+
+# go to the home page
+driver.get('https://www.zomato.com')
+
+# storing the current window handle to get back to dashboard
+main_page = driver.current_window_handle
+
+# wait for page to load completely
+sleep(5)
+
+# click on the sign in tab
+driver.find_element_by_xpath('//*[@id ="signin-link"]').click()
+
+sleep(5)
+
+# click to log in using facebook
+driver.find_element_by_xpath('//*[@id ="facebook-login-global"]/span').click()
+
+# changing the handles to access login page
+for handle in driver.window_handles:
+    if handle != main_page:
+        login_page = handle
+
+# change the control to signin page
+driver.switch_to.window(login_page)
+
+# user input for email and password
+print('Enter email id : ', end='')
+email = input().strip()
+print('Enter password : ', end='')
+password = input().strip()
+
+# enter the email
+driver.find_element_by_xpath('//*[@id ="email"]').send_keys(email)
+
+# enter the password
+driver.find_element_by_xpath('//*[@id ="pass"]').send_keys(password)
+
+# click the login button
+driver.find_element_by_xpath('//*[@id ="u_0_0"]').click()
+
+# change control to main page
+driver.switch_to.window(main_page)
+
+sleep(10)
+# print user name
+name = driver.find_element_by_xpath('/html/body/div[4]/div/div[1]/header/div[2]/div/div/div/div/span').text
+print('Your user name is : {}'.format(name))
+
+# closing the window
+driver.quit()"""
+
+"""from selenium import webdriver
+from selenium.webdriver.common.alert import Alert
+from selenium.webdriver.common.by import By
+#browser exposes an executable file
+#Through Selenium test we will invoke the executable file which will then #invoke actual browser
+driver = webdriver.Chrome()
+# to maximize the browser window
+driver.maximize_window()
+#get method to launch the URL
+driver.get("https://www.tutorialspoint.com/selenium/selenium_automation_practice.htm")
+#to refresh the browser
+driver.refresh()
+#click on submit button
+driver.find_element(By.XPATH,"//button[@name='submit']").click()
+# alert object creation and switching focus to alert
+a = driver.switch_to.alert
+# accept the alert
+a.accept()
+driver.close()"""
+
+"""from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+desired_caps = {
+    "app": "C:\\Windows\\System32\\notepad.exe",
+}
+driver=webdriver.Chrome()
+
+driver = webdriver.Remote(
+    command_executor='http://127.0.0.1:4723',
+    desired_capabilities=desired_caps)
+notepad_window = driver.find_element(By.CLASS_NAME,"Notepad")
+
+# Find the "File" menu
+file_menu = notepad_window.find_element(By.NAME,"File")
+file_menu.click()
+
+# Click the "Open" option
+open_option = notepad_window.find_element(By.NAME,"Open...")
+open_option.click()
+
+# Enter the file path
+file_path_input = driver.find_element(By.CLASS_NAME,"Edit")
+file_path_input.send_keys("C:\\test.txt")
+
+# Click the "Open" button
+open_button = driver.find_element(By.NAME,"Open")
+open_button.click()
+driver.quit()"""
+
+"""from selenium import webdriver
+#import Alert class
+from selenium.webdriver.common.alert import Alert
+from selenium.webdriver.common.by import By
+driver = webdriver.Chrome()
+#implicit wait time
+driver.implicitly_wait(0.8)
+#url launch
+driver.get("https://the-internet.herokuapp.com/javascript_alerts")
+#identify element
+l = driver.find_element(By.XPATH,"//*[text()='Click for JS Prompt']")
+l.click()
+# instance of Alert class
+a = Alert(driver)
+# get alert text
+print(a.text)
+#input text in Alert
+a.send_keys('Tutorialspoint')
+#dismiss alert
+a.dismiss()
+l.click()
+#accept alert
+a.accept()
+#driver quit
+driver.quit()"""
+
+from time import time
+from selenium import webdriver
+from selenium.webdriver import Keys, ActionChains
+from selenium.webdriver.common.actions.action_builder import ActionBuilder
+from selenium.webdriver.common.by import By
+
+
+def test_pauses(driver):
+    driver.get('https://selenium.dev/selenium/web/mouse_interaction.html')
+
+    start = time()
+
+    clickable = driver.find_element(By.ID, "clickable")
+    ActionChains(driver) \
+        .move_to_element(clickable) \
+        .pause(1) \
+        .click_and_hold() \
+        .pause(1) \
+        .send_keys("abc") \
+        .perform()
+
+    duration = time() - start
+    assert duration > 2
+    assert duration < 3
+
+
+def test_releases_all(driver):
+    driver.get('https://selenium.dev/selenium/web/mouse_interaction.html')
+
+    clickable = driver.find_element(By.ID, "clickable")
+    ActionChains(driver) \
+        .click_and_hold(clickable) \
+        .key_down(Keys.SHIFT) \
+        .key_down("a") \
+        .perform()
+
+    ActionBuilder(driver).clear_actions()
+
+    ActionChains(driver).key_down('a').perform()
+
+    assert clickable.get_attribute('value')[0] == "A"
+    assert clickable.get_attribute('value')[1] == "a"
