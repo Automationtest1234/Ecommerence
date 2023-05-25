@@ -1,5 +1,4 @@
 import time
-
 from selenium import webdriver
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
@@ -13,11 +12,11 @@ driver.maximize_window()
 driver.save_screenshot("D:\Ecommerence\Screenshots/Homescreen.png")
 
 #Get the username from the user
-UserName=driver.find_element(By.XPATH,"/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]")
+UserName=driver.find_element(By.XPATH,'//input[@id="input-10"]')
 UserName.send_keys("esab")
 driver.save_screenshot("D:\Ecommerence\Screenshots/Username.png")
 #Get the password from the user
-Password=driver.find_element(By.XPATH,"/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/input[1]")
+Password=driver.find_element(By.XPATH,'//input[@id="input-13"]')
 Password.send_keys("esab")
 driver.save_screenshot("D:\Ecommerence\Screenshots/Password.png")
 
@@ -41,11 +40,14 @@ time.sleep(2)
 driver.save_screenshot("D:\Ecommerence\Screenshots/Jobs.png")
 #driver.find_element(By.XPATH,"//div[@class='job_title'][normalize-space()='one']").clear()
 driver.find_element(By.XPATH,"//div[@class='job_title'][normalize-space()='Manual']").click()
+#driver.find_element(By.XPATH,"/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]").click()
 time.sleep(2)
-driver.find_element(By.XPATH,"//div[@class='activate-button']").click()
+driver.find_element(By.XPATH,"//button[@class='base-button base-button--primary']").click()
+#driver.find_element(By.XPATH,"//div[@class='activate-button']").click()
 time.sleep(2)
-driver.find_element(By.XPATH,"//div[@class='v-image v-responsive header__icon-back theme--light']//div[@class='v-responsive__content']").click()
+driver.find_element(By.XPATH,"//div[@class='v-image v-responsive header__icon-back theme--dark']//div[@class='v-responsive__content']").click()
 time.sleep(2)
+#driver.find_element(By.XPATH,'//button[normalize-space()="Save Job"]').click()
 
 # Tools
 driver.find_element(By.XPATH,"//div[contains(text(),'Tools')]").click()
@@ -56,14 +58,14 @@ driver.save_screenshot("D:\Ecommerence\Screenshots/Tools.png")
 driver.find_element(By.XPATH,"//div[contains(text(),'Error log')]").click()
 time.sleep(2)
 driver.save_screenshot("D:\Ecommerence\Screenshots/Error_log.png")
-driver.find_element(By.XPATH,"//div[@class='v-image v-responsive header__icon-back theme--light']//div[@class='v-responsive__content']").click()
+driver.find_element(By.XPATH,"//div[@class='v-image v-responsive header__icon-back theme--dark']//div[@class='v-responsive__content']").click()
 time.sleep(1)
 
 #Truearc compensate
 driver.find_element(By.XPATH,"//div[contains(text(),'TRUEARC Compensate')]").click()
 time.sleep(2)
 driver.save_screenshot("D:\Ecommerence\Screenshots/Turearc.png")
-driver.find_element(By.XPATH,"//div[@class='v-image v-responsive header__icon-back theme--light']//div[@class='v-responsive__content']").click()
+driver.find_element(By.XPATH,"//div[@class='v-image v-responsive header__icon-back theme--dark']//div[@class='v-responsive__content']").click()
 time.sleep(2)
 
 # Settings
@@ -151,6 +153,9 @@ time.sleep(1)
 driver.find_element(By.XPATH,"//div[@role='button']//div[@class='v-responsive__content']").click()
 time.sleep(2)
 driver.find_element(By.XPATH,"//div[contains(text(),'Log Out')]").click()
+time.sleep(2)
+
+driver.find_element(By.XPATH,"").click()
 time.sleep(2)
 
 

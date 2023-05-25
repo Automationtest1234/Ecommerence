@@ -4,7 +4,8 @@ class LogGen:
     @staticmethod
     def loggen():
         logger = logging.getLogger()
-        handler = logging.FileHandler('D:\\Ecommerence\\Logs\\automation.log')
-        logger.addHandler(handler)
+        logging.basicConfig(filename="D:\\Ecommerence\\Logs\\automation.log",
+                            format='%(asctime)s %(message)s',
+                            filemode='w')
         logger.setLevel(logging.INFO)
         return logger
